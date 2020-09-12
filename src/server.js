@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use('/users', users);
 
 app.use('/', (req, res) => {
-  return res.status(200).json({message: 'Hello World'});
+  return res.status(200).json({message: 'Hello World with Travis'});
 });
 
 if (process.env.NODE_ENV !== 'test') {
