@@ -1,0 +1,19 @@
+service: organizer-api
+
+frameworkVersion: "2.0.0"
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: us-east-2
+
+plugins:
+  - serverless-offline
+
+functions:
+  mainEntry:
+    handler: src/server.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
