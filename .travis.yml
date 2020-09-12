@@ -19,9 +19,9 @@ jobs:
         - set +e
 stages:
   - name: dev
-    if branch = dev
+    if: branch = dev
   - name: prod
-    if branch = master
+    if: branch = master
 
 
 
