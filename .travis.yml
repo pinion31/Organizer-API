@@ -1,0 +1,27 @@
+language: node_js
+node_js: 
+  - 12.16.1
+install:
+  - npm install
+before_script:
+  - npm i serverless -g
+jobs:
+  include:
+    - stage: dev
+      script:
+        - set -e
+        - npm run deploy-dev
+        - set +e
+    - stage: prod
+      script:
+        - set -e
+        - npm run deploy-prod
+        - set +e
+stages:
+  - name: dev
+    if branch = dev
+  - name: prod
+    if branch = master
+
+
+
